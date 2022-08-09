@@ -16,6 +16,7 @@ const initalLoad = (function() {
     //populate div elements with imported html
     _nav.innerHTML += nav;
     _header.innerHTML += header;
+    _main.innerHTML += main;
     _footer.innerHTML += footer;
     //methods
     function _addDiv(name)   {
@@ -23,11 +24,6 @@ const initalLoad = (function() {
         newDiv.id = name;
         _content.appendChild(newDiv);
         return newDiv;
-    }
-    function _addImage(img)    {
-        const _image = new Image();
-        _image.src = img;
-        return _image;
     }
 })();
 

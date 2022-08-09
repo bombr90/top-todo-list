@@ -33,9 +33,8 @@
     align-content: center;
     overflow:auto;
     /* 360pxx640px mobile, 1280x800 tablet */
-    width: clamp(360px, 100%, 1280px);
-    min-height: 640px;
-    /* height: clamp(640px, 100%, 1280px); */
+    width: clamp(640px, 100%, 1280px);
+    min-height: 360px;
 }
 
 #header {
@@ -43,10 +42,6 @@
     display: flex;
     align-items:center;
     justify-content: center;
-}
-
-h1 {
-    margin: 0;
 }
 
 #nav    {
@@ -61,9 +56,14 @@ h1 {
 }
 
 #projectbar   {
-
+    padding-left: 20px;
 }
 
+#projectbar > li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 #main   {
     grid-area: main;
     padding: 16px;
@@ -75,76 +75,47 @@ h1 {
     align-items: center;
     justify-content: center;
 }
-/* object formatting */
-.card, .projectCard, .todoCard  {
-    display: grid;
-    padding: 16px;
-    gap: 16px;
-    grid-template-columns: 1fr;
-    grid-template-rows: 30px repeat(3,1fr);
-    font-size: 1.2rem;
-    background-color: var(--objectColor);
-    box-shadow: 4px 4px 8px black;
-    text-align: center;
-    align-items: center;
-}
 
-.newproject, .newtodo {
-    grid-template-rows: 1fr;
-}
-
-
-.edittodo   {
-    grid-template-rows: 3fr;
-}
-/* 
-.todoCard   {
-    grid-template-rows: 30px repeat(5,1fr);
-} */
-
-.menucard   {
-    grid-template-rows: repeat(2,25px) 50px 25px 50px;
-}
-
-.cards  {
-    display: grid;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-auto-rows: 1fr;  
-    background-color: whitesmoke;
+.todoForm   {
+    display:flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+    border: 1px solid grey;
+    border-radius: 6px;
     box-shadow: 4px 4px 8px gray;
+    width: 50%;
+}
+
+.todoForm div {
+    display: flex;
+    gap: 8px;
+    font-weight: 700;
+    align-content: center;
+    justify-content: center;
+}
+
+.todoForm input {
+    /* flex: 1; */
 }
 
 #main button  {
-    padding: 15px 30px;
+    padding: 5px 10px;
     font-weight: 700;
     font-size: 1.1rem;
     background-color: whitesmoke;
 }
 
-.tablecard  {
-    display: grid;
-    grid-template-columns: 100px repeat(2, 75px);
-    padding: 2px;
-    align-items: center;
-    justify-items: center;
-}
-
-.tablecards {
-    display: grid;
-    gap: 0px;
-    align-items: center;
-    justify-items: center;
-}
-
-.tablecard:nth-child(1)    {
-    font-weight: 700;
+#mainContent > button {
+    margin-top: 1rem;
 }
 
 .center {
     text-align: center;
+}
+
+h1  {
+    font-size: 1.5rem;
 }
 
 /* Navigation Styling */
@@ -175,16 +146,68 @@ h1 {
     font-weight: 700;
 }
 
-.clicked::after{
-    /* content: '*'; */
-    /* margin: auto; */
+#newproject > form {
+    display:flex;
+    gap: 6px;
 }
-/* 
-.image    {
-    width: 50px;
-    height: auto;
-    margin: auto;
-    padding: 5px;
-    border-radius: 50%;
-    background-color: white;
-} */
+
+#newproject > form > button    {
+    font-size: 16px;
+}
+#newproject input, .todoForm input {
+    flex:1;
+    background-color: var(--backgroundColor);
+    font-size: 16px;
+    border: none;
+}
+#projectbar button{
+    padding: 6px;
+    /* font-size: 16px; */
+    border:none;
+    background-color: inherit;
+}
+
+.navbar button:hover{
+    background-color: var(--backgroundColor);
+    transition: .3s;
+}
+
+/* Todo Styling */
+
+.todo{
+    display:grid;
+    grid-template-rows: 32px;
+    grid-template-columns: repeat(3, 1fr) 50px 50px;
+    gap: 8px;
+    padding:8px;
+    align-items: center;
+    justify-content: space-evenly;
+    justify-items: center;
+    border: 2px solid slategray;
+}
+
+.todoHeader{
+    font-weight: 700;
+    font-size: 1.2rem;
+    background-color: gray;
+    grid-template-columns: repeat(3, 1fr) 50px 50px;
+}
+
+.readOnly {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.low{
+    background-color: green;
+}
+.medium{
+    background-color: yellow;
+}
+.high{
+    background-color: red;
+}
+
+#mainDescription {
+    font-style: italic;
+    font-size: 1.2rem;
+}

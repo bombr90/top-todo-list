@@ -1,8 +1,14 @@
     <ul class="navbar">
         <li id="home" class="clicked">Home</li>
-        <li id="today">Due this Week</li>
-        <li id="week">Due this Month</li>
-        <li id="'newproject">New Project</li>
+        <!-- <li id="today">Due this Week</li>
+        <li id="week">Due this Month</li> -->
+        <li id="newproject">
+            <p>New Project</p>
+            <form id="projectform" onsubmit="return false">
+                <input name='projectname' placeholder="Example Project">
+                <button id="addProject" type="submit">&plus;</button>
+            </form>
+        </li>
     </ul>
     <ul id="projectbar" class="navbar">
     </ul>

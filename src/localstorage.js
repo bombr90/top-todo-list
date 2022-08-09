@@ -1,24 +1,21 @@
 // localstorage module
 const saveData = (key, value) => {
-    console.log('saveData');
-    window.sessionStorage.setItem(key, JSON.stringify(value));
+    let saveValue = value||[];
+    window.localStorage.setItem(key, JSON.stringify(saveValue));
 }
 
 const clearData = (key) => {
-    console.log('clearData');
-    window.sessionStorage.removeItem(key);
+    window.localStorage.removeItem(key);
 }
 
 const loadData = (key) =>    {
-    console.log('loaddata');
-    let data = window.sessionStorage.getItem(key); 
+    let data = window.localStorage.getItem(key); 
     return(JSON.parse(data)||[]);
 }
 
 const getProjectKeys = () => {
-    console.log('getProjectKeys');
-    let keys = Object.keys(sessionStorage);
-    return keys;
+    let keys = Object.keys(localStorage);
+    return (keys||[]);
 }
 
 export  {saveData, loadData, clearData, getProjectKeys};
